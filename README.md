@@ -26,8 +26,6 @@ undefined
 
 ## Usage
 
-Class
-
 ## Contribution
 
 We believe code is never finished, and welcome your contributions to enhance the application's functionality. Please adhere to the Code of Conduct for the Contributor Covenant, version 2.0, at https://www.contributor-covenant.org/version/2/0/code_of_conduct.html.
