@@ -1,0 +1,29 @@
+{
+  "name": "teamprofile_generator",
+  "version": "1.0.0",
+  "description": "![license badge](https://img.shields.io/badge/License-MIT-lightgrey.svg)",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "jest --verbose test/*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kapodaca0403/teamprofile_generator.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kapodaca0403/teamprofile_generator/issues"
+  },
+  "homepage": "https://github.com/kapodaca0403/teamprofile_generator#readme",
+  "dependencies": {
+    "inquirer": "^8.1.2"
+  },
+  "devDependencies": {
+    "jest": "^27.0.6"
+  }
+}
