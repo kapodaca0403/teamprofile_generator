@@ -26,7 +26,7 @@ const path = require("path");
 const fs = require("fs");
 const outputdir = path.resolve(__dirname, "output");
 const outputPath = path.join(outputdir, "index.html"); // change if HMTL name is diff
-const render = require("./src/page-template.js");
+const render = require("./src/index.js");
 
 const TeamMem = [];
 
