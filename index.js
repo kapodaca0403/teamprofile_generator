@@ -140,7 +140,7 @@ function app() {
           name: "InternID",
           validate: (input) => {
             const success = input.match(/^[1-9]d$/);
-            if (sucess) {
+            if (success) {
               return true;
             } else {
               return "Please enter a number greater than 0";
@@ -260,6 +260,7 @@ function app() {
       fs.mkdirSync(outputdir);
     }
     fs.writeFileSync(outputPath, render(TeamMem), "utf-8");
+    // html
   }
   createMan();
 }

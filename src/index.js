@@ -1,24 +1,113 @@
 function genTeam(teamData) {
-  function genManager(managerData) {
+  function genManager(manager) {
     // HTML for manager card goes inside literal return statement
     return `
-        
-        
+        <div class="card employee-card">
+        <div class="card-header">
+            <h2 class="card-title">${manager.getName()}</h2>
+            <h3 class="card-title"><i class="fas fa-mug-hot mr-2"></i>${manager.getRole()}</h3>
+        </div>
+        <div class="card-body">
+            <ul class="list-group">
+                <li class="list-group-item">ID: ${manager.getId()}</li>
+                <li class="list-group-item">Email: <a href="mailto:${manager.getEmail()}">${manager.getEmail()}</a></li>
+                <li class="list-group-item">Office number: ${manager.getOfficeNum()}</li>
+            </ul>
+        </div>
+    </div>
         `;
   }
-  function genIntern(internData) {
+  function genIntern(intern) {
     // HTML for intern card goes inside literal return statement
     return `
+    <div class="card employee-card">
+      <div class="card-header">
+        <h2 class="card-title">${intern.getName()}</h2>
+        <h3 class="card-title">
+          <i class="fas fa-mug-hot mr-2"></i>${intern.getRole()}
+        </h3>
+      </div>
+      <div class="card-body">
+        <ul class="list-group">
+          <li class="list-group-item">ID: ${intern.getId()}</li>
+          <li class="list-group-item">
+            Email:{" "}
+            <a href="mailto:${intern.getEmail()}">${intern.getEmail()}</a>
+          </li>
+          <li class="list-group-item">
+            School: ${intern.getschool()}
+          </li>
+        </ul>
+      </div>
+    </div>;
     `;
   }
-  function genEngineer(engineerData) {
+  function genEngineer(engineer) {
     // HTML for engineer card goes inside literal return
     return `
-        
+        <div class="card employee-card">
+      <div class="card-header">
+        <h2 class="card-title">${engineer.getName()}</h2>
+        <h3 class="card-title">
+          <i class="fas fa-mug-hot mr-2"></i>${engineer.getRole()}
+        </h3>
+      </div>
+      <div class="card-body">
+        <ul class="list-group">
+          <li class="list-group-item">ID: ${engineer.getId()}</li>
+          <li class="list-group-item">
+            Email:{" "}
+            <a href="mailto:${engineer.getEmail()}">${engineer.getEmail()}</a>
+          </li>
+          <li class="list-group-item">
+            Github: ${engineer.getgithub()}
+          </li>
+        </ul>
+      </div>
+    </div>;
         `;
   }
+  const html = [];
+
+  html.push(
+    teamData
+      .filter((employee) => employee.getRole() === "Manager")
+      .map((manager) => genManager(manager))
+  );
+  html.push(
+    teamData
+      .filter((employee) => employee.getRole() === "Engineer")
+      .map((engineer) => genEngineer(engineer))
+      .join("")
+  );
+  html.push(
+    teamData
+      .filter((employee) => employee.getRole() === "Intern")
+      .map((intern) => genIntern(intern))
+      .join("")
+  );
+
+  return html.join("");
 }
-module.exports = (team) => {
+module.exports = (newTeam) => {
+  return `<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Georama:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <title>Team Profile</title>
+</head>
+<body>
+${genTeam(newTeam)}
+</body>
+</html>
+ `;
   // return statement literal for HTML header
   // HTML that tells the card where it goes on the page
 };
