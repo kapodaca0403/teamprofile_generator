@@ -17,10 +17,10 @@
 
 //  all of these should deploy and create an HMTL
 
-const employData = require("./employee");
-const Intern = require("./intern");
-const Manager = require("./manager");
-const Engineer = require("./engineer");
+// const employData = require("./employee");
+// const Intern = require("./intern");
+// const Manager = require("./manager");
+// const Engineer = require("./engineer");
 const inquirer = require("inquirer");
 const path = require("path");
 const fs = require("fs");
@@ -51,8 +51,8 @@ function app() {
           message: "What is your ID number?",
           name: "MangerID",
           validate: (input) => {
-            const success = input.match(/^[1-9]d$/);
-            if (sucess) {
+            // const success = input.match(/^[1-9]d$/);
+            if (input !== "") {
               return true;
             } else {
               return "Please enter a number greater than 0";
@@ -79,8 +79,8 @@ function app() {
           message: "What is your office number?",
           name: "ManagerOfficenum",
           validate: (input) => {
-            const success = input.match(/^[1-9]d$/);
-            if (sucess) {
+            // const success = input.match(/^[1-9]d$/);
+            if (input !== "") {
               return true;
             } else {
               return "Please enter a number greater than 0";
@@ -89,7 +89,7 @@ function app() {
         },
       ])
       .then((data) => {
-        const manager = new Manager(
+        const manager = new manager(
           data.TeamManager,
           data.ManagerID,
           data.ManagerEmail,
@@ -139,12 +139,13 @@ function app() {
           message: "What is your intern's ID number?",
           name: "InternID",
           validate: (input) => {
-            const success = input.match(/^[1-9]d$/);
-            if (success) {
-              return true;
-            } else {
-              return "Please enter a number greater than 0";
-            }
+            // const success = input.match(/^[1-9]d$/);
+            if (input !== "")
+             {
+                return true;
+              } else {
+                return "Please enter a number greater than 0";
+              }
           },
         },
 
@@ -177,7 +178,7 @@ function app() {
         },
       ])
       .then((data) => {
-        const intern = new Intern(
+        const intern = new intern(
           data.InternName,
           data.InternID,
           data.InternEmail,
@@ -207,8 +208,8 @@ function app() {
           message: "What is your Engineer's ID number?",
           name: "engineerID",
           validate: (input) => {
-            const success = input.match(/^[1-9]d$/);
-            if (sucess) {
+          // const success = input.match(/^[1-9]d$/);
+            if (input !=="") {
               return true;
             } else {
               return "Please enter a number greater than 0";
@@ -245,7 +246,7 @@ function app() {
         },
       ])
       .then((data) => {
-        const engineer = new Engineer(
+        const engineer = new engineer(
           data.EngineerName,
           data.engineerID,
           data.EngineerEmail,
