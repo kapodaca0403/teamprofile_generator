@@ -5,13 +5,13 @@ function genTeam(teamData) {
         <div class="card employee-card">
         <div class="card-header">
             <h2 class="card-title">${manager.getName()}</h2>
-            <h3 class="card-title"><i class="fas fa-mug-hot mr-2"></i>${manager.getRole()}</h3>
+            <h3 class="card-title"><i class="fas fa-mug-hot mr-2"></i>${manager.getrole()}</h3>
         </div>
         <div class="card-body">
             <ul class="list-group">
                 <li class="list-group-item">ID: ${manager.getId()}</li>
                 <li class="list-group-item">Email: <a href="mailto:${manager.getEmail()}">${manager.getEmail()}</a></li>
-                <li class="list-group-item">Office number: ${manager.getOfficeNum()}</li>
+                <li class="list-group-item">Office number: ${manager.getofficeNum()}</li>
             </ul>
         </div>
     </div>
@@ -24,14 +24,14 @@ function genTeam(teamData) {
       <div class="card-header">
         <h2 class="card-title">${intern.getName()}</h2>
         <h3 class="card-title">
-          <i class="fas fa-mug-hot mr-2"></i>${intern.getRole()}
+          <i class="fas fa-mug-hot mr-2"></i>${intern.getrole()}
         </h3>
       </div>
       <div class="card-body">
         <ul class="list-group">
           <li class="list-group-item">ID: ${intern.getId()}</li>
           <li class="list-group-item">
-            Email:{" "}
+            Email:
             <a href="mailto:${intern.getEmail()}">${intern.getEmail()}</a>
           </li>
           <li class="list-group-item">
@@ -49,7 +49,7 @@ function genTeam(teamData) {
       <div class="card-header">
         <h2 class="card-title">${engineer.getName()}</h2>
         <h3 class="card-title">
-          <i class="fas fa-mug-hot mr-2"></i>${engineer.getRole()}
+          <i class="fas fa-mug-hot mr-2"></i>${engineer.getrole()}
         </h3>
       </div>
       <div class="card-body">
@@ -71,18 +71,18 @@ function genTeam(teamData) {
 
   html.push(
     teamData
-      .filter((employee) => employee.getRole() === "Manager")
+      .filter((employee) => employee.getrole() === "Manager")
       .map((manager) => genManager(manager))
   );
   html.push(
     teamData
-      .filter((employee) => employee.getRole() === "Engineer")
+      .filter((employee) => employee.getrole() === "Engineer")
       .map((engineer) => genEngineer(engineer))
       .join("")
   );
   html.push(
     teamData
-      .filter((employee) => employee.getRole() === "Intern")
+      .filter((employee) => employee.getrole() === "Intern")
       .map((intern) => genIntern(intern))
       .join("")
   );
@@ -90,6 +90,7 @@ function genTeam(teamData) {
   return html.join("");
 }
 module.exports = (newTeam) => {
+  // console.log(newTeam)
   return `<!DOCTYPE html>
 <html lang="en">
 <head>

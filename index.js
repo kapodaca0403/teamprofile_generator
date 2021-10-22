@@ -18,9 +18,9 @@
 //  all of these should deploy and create an HMTL
 
 // const employData = require("./employee");
-// const Intern = require("./intern");
-// const Manager = require("./manager");
-// const Engineer = require("./engineer");
+const Intern = require("./lib/intern");
+const Manager = require("./lib/manager");
+const Engineer = require("./lib/engineer");
 const inquirer = require("inquirer");
 const path = require("path");
 const fs = require("fs");
@@ -49,7 +49,7 @@ function app() {
         {
           type: "input",
           message: "What is your ID number?",
-          name: "MangerID",
+          name: "ManagerID",
           validate: (input) => {
             // const success = input.match(/^[1-9]d$/);
             if (input !== "") {
@@ -89,7 +89,7 @@ function app() {
         },
       ])
       .then((data) => {
-        const manager = new manager(
+        const manager = new Manager(
           data.TeamManager,
           data.ManagerID,
           data.ManagerEmail,
@@ -99,27 +99,9 @@ function app() {
         createTeam();
       });
   }
-  function createTeam() {
-    inquirer
-      .prompt([
-        {
-          type: "list",
-          name: "TeamPos",
-          message: "What member are you adding?",
-          choices: ["None", "Intern", "Engineer"],
-        },
-      ])
-      .then((data) => {
-        if (data === "Intern") {
-          newbie();
-        } else if (data === "Engineer") {
-          tenured();
-        } else {
-          newTeam();
-        }
-      });
-  }
+  
   function newbie() {
+    console.log("here is newbie")
     inquirer
       .prompt([
         {
@@ -140,12 +122,11 @@ function app() {
           name: "InternID",
           validate: (input) => {
             // const success = input.match(/^[1-9]d$/);
-            if (input !== "")
-             {
-                return true;
-              } else {
-                return "Please enter a number greater than 0";
-              }
+            if (input !== "") {
+              return true;
+            } else {
+              return "Please enter a number greater than 0";
+            }
           },
         },
 
@@ -178,7 +159,7 @@ function app() {
         },
       ])
       .then((data) => {
-        const intern = new intern(
+        const intern = new Intern(
           data.InternName,
           data.InternID,
           data.InternEmail,
@@ -208,8 +189,8 @@ function app() {
           message: "What is your Engineer's ID number?",
           name: "engineerID",
           validate: (input) => {
-          // const success = input.match(/^[1-9]d$/);
-            if (input !=="") {
+            // const success = input.match(/^[1-9]d$/);
+            if (input !== "") {
               return true;
             } else {
               return "Please enter a number greater than 0";
@@ -246,7 +227,7 @@ function app() {
         },
       ])
       .then((data) => {
-        const engineer = new engineer(
+        const engineer = new Engineer(
           data.EngineerName,
           data.engineerID,
           data.EngineerEmail,
@@ -256,12 +237,35 @@ function app() {
         createTeam();
       });
   }
+  function createTeam() {
+    inquirer
+      .prompt([
+        {
+          type: "list",
+          name: "TeamPos",
+          message: "What member are you adding?",
+          choices: ["None", "Intern", "Engineer"],
+        },
+      ])
+      .then((data) => {
+        // console.log(data)
+        if (data.TeamPos === "Intern") {
+          newbie();
+        } else if (data.TeamPos === "Engineer") {
+          tenured();
+        } else {
+          newTeam();
+        }
+      });
+  }
   function newTeam() {
     if (!fs.existsSync(outputdir)) {
       fs.mkdirSync(outputdir);
     }
+    console.log(render(TeamMem),"test")
     fs.writeFileSync(outputPath, render(TeamMem), "utf-8");
     // html
+  
   }
   createMan();
 }
