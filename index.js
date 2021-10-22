@@ -231,7 +231,7 @@ function app() {
           data.EngineerName,
           data.engineerID,
           data.EngineerEmail,
-          data.EngineerSchool
+          data.EngineerGithub
         );
         TeamMem.push(engineer);
         createTeam();

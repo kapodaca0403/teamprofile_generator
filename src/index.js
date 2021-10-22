@@ -2,10 +2,10 @@ function genTeam(teamData) {
   function genManager(manager) {
     // HTML for manager card goes inside literal return statement
     return `
-        <div class="card employee-card">
+        <div class="card employee-card" style="width: 18rem; justify-content:center; display: inline-block;">
         <div class="card-header">
-            <h2 class="card-title" style="background-color: #a706f1; color: white;">${manager.getName()}</h2>
-            <h3 class="card-title" style="background-color: #a706f1; color: white;"><i class="fas fa-mug-hot mr-2"></i>${manager.getrole()}</h3>
+            <h2 class="card-title" style="background-color: #e2b7ff; color: white;">${manager.getName()}</h2>
+            <h3 class="card-title" style="background-color: #e2b7ff; color: white;"><i class="fas fa-mug-hot mr-2"></i>${manager.getrole()}</h3>
         </div>
         <div class="card-body">
             <ul class="list-group">
@@ -20,10 +20,10 @@ function genTeam(teamData) {
   function genIntern(intern) {
     // HTML for intern card goes inside literal return statement
     return `
-    <div class="card employee-card">
+    <div class="card employee-card" style="width: 18rem; justify-content:center; display: inline-block;">
       <div class="card-header">
-        <h2 class="card-title" style="background-color: #a706f1; color: white;">${intern.getName()}</h2>
-        <h3 class="card-title" style="background-color: #a706f1; color: white;">
+        <h2 class="card-title" style="background-color: #e2b7ff; color: white;">${intern.getName()}</h2>
+        <h3 class="card-title" style="background-color: #e2b7ff; color: white;">
           <i class="fas fa-mug-hot mr-2"></i>${intern.getrole()}
         </h3>
       </div>
@@ -45,10 +45,10 @@ function genTeam(teamData) {
   function genEngineer(engineer) {
     // HTML for engineer card goes inside literal return
     return `
-        <div class="card employee-card">
+        <div class="card employee-card" style="width: 18rem; justify-content:center; display: inline-block;">
       <div class="card-header">
-        <h2 class="card-title" style="background-color: #a706f1; color: white;">${engineer.getName()}</h2>
-        <h3 class="card-title" style="background-color: #a706f1; color: white;">
+        <h2 class="card-title" style="background-color: #e2b7ff; color: white;">${engineer.getName()}</h2>
+        <h3 class="card-title" style="background-color: #e2b7ff; color: white;">
           <i class="fas fa-mug-hot mr-2"></i>${engineer.getrole()}
         </h3>
       </div>
