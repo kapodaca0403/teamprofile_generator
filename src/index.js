@@ -4,8 +4,8 @@ function genTeam(teamData) {
     return `
         <div class="card employee-card">
         <div class="card-header">
-            <h2 class="card-title">${manager.getName()}</h2>
-            <h3 class="card-title"><i class="fas fa-mug-hot mr-2"></i>${manager.getrole()}</h3>
+            <h2 class="card-title" style="background-color: #a706f1; color: white;">${manager.getName()}</h2>
+            <h3 class="card-title" style="background-color: #a706f1; color: white;"><i class="fas fa-mug-hot mr-2"></i>${manager.getrole()}</h3>
         </div>
         <div class="card-body">
             <ul class="list-group">
@@ -15,15 +15,15 @@ function genTeam(teamData) {
             </ul>
         </div>
     </div>
-        `
+        `;
   }
   function genIntern(intern) {
     // HTML for intern card goes inside literal return statement
     return `
     <div class="card employee-card">
       <div class="card-header">
-        <h2 class="card-title">${intern.getName()}</h2>
-        <h3 class="card-title">
+        <h2 class="card-title" style="background-color: #a706f1; color: white;">${intern.getName()}</h2>
+        <h3 class="card-title" style="background-color: #a706f1; color: white;">
           <i class="fas fa-mug-hot mr-2"></i>${intern.getrole()}
         </h3>
       </div>
@@ -40,15 +40,15 @@ function genTeam(teamData) {
         </ul>
       </div>
     </div>;
-    `
+    `;
   }
   function genEngineer(engineer) {
     // HTML for engineer card goes inside literal return
     return `
         <div class="card employee-card">
       <div class="card-header">
-        <h2 class="card-title">${engineer.getName()}</h2>
-        <h3 class="card-title">
+        <h2 class="card-title" style="background-color: #a706f1; color: white;">${engineer.getName()}</h2>
+        <h3 class="card-title" style="background-color: #a706f1; color: white;">
           <i class="fas fa-mug-hot mr-2"></i>${engineer.getrole()}
         </h3>
       </div>
@@ -61,12 +61,12 @@ function genTeam(teamData) {
           </li>
           <li class="list-group-item">
             Github:
-            <a href="https://github.com${engineer.getgithub()}">${engineer.getgithub()}</a>
+            <a href="https://github.com/${engineer.getgithub()}"> ${engineer.getgithub()}</a>
           </li>
         </ul>
       </div>
     </div>;
-        `
+        `;
   }
   const html = [];
 
@@ -110,15 +110,17 @@ module.exports = (newTeam) => {
     <div id="header" class="card-body" style="background-image: linear-gradient(-90deg, #e2b7ff, #a706f1)">
       <h1 class="mb-3" style="text-align: center;">My Team</h1>
     </div>
-   
-  <div class="card">
-    <div class="card" style="width: 18rem;" style="justify-content:center">
-      <div class="card-body" >
+
+
+     <div class="container">
+  <div class="card-group">
+    <div class="card" style="width: 18rem; justify-content:center; display: inline-block;">
+    
 
 ${genTeam(newTeam)}
 </body>
 </html>
- `
+ `;
   // return statement literal for HTML header
   // HTML that tells the card where it goes on the page
 };
