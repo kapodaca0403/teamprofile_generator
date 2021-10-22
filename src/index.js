@@ -3,7 +3,7 @@ function genTeam(teamData) {
     // HTML for manager card goes inside literal return statement
     return `
         <div class="card employee-card" style="width: 18rem; justify-content:center; display: inline-block;">
-        <div class="card-header">
+        <div class="card-header" style="background-color: #e2b7ff;">
             <h2 class="card-title" style="background-color: #e2b7ff; color: white;">${manager.getName()}</h2>
             <h3 class="card-title" style="background-color: #e2b7ff; color: white;"><i class="fas fa-mug-hot mr-2"></i>${manager.getrole()}</h3>
         </div>
@@ -21,7 +21,7 @@ function genTeam(teamData) {
     // HTML for intern card goes inside literal return statement
     return `
     <div class="card employee-card" style="width: 18rem; justify-content:center; display: inline-block;">
-      <div class="card-header">
+      <div class="card-header" style="background-color: #e2b7ff;">
         <h2 class="card-title" style="background-color: #e2b7ff; color: white;">${intern.getName()}</h2>
         <h3 class="card-title" style="background-color: #e2b7ff; color: white;">
           <i class="fas fa-mug-hot mr-2"></i>${intern.getrole()}
@@ -46,7 +46,7 @@ function genTeam(teamData) {
     // HTML for engineer card goes inside literal return
     return `
         <div class="card employee-card" style="width: 18rem; justify-content:center; display: inline-block;">
-      <div class="card-header">
+      <div class="card-header" style="background-color: #e2b7ff;">
         <h2 class="card-title" style="background-color: #e2b7ff; color: white;">${engineer.getName()}</h2>
         <h3 class="card-title" style="background-color: #e2b7ff; color: white;">
           <i class="fas fa-mug-hot mr-2"></i>${engineer.getrole()}
@@ -108,7 +108,7 @@ module.exports = (newTeam) => {
 <body>
 <div class="card">
     <div id="header" class="card-body" style="background-image: linear-gradient(-90deg, #e2b7ff, #a706f1)">
-      <h1 class="mb-3" style="text-align: center;">My Team</h1>
+      <h1 class="mb-3" style="text-align: center; color:white;">My Team</h1>
     </div>
 
 
