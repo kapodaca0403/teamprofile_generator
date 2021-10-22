@@ -15,7 +15,7 @@ function genTeam(teamData) {
             </ul>
         </div>
     </div>
-        `;
+        `
   }
   function genIntern(intern) {
     // HTML for intern card goes inside literal return statement
@@ -40,7 +40,7 @@ function genTeam(teamData) {
         </ul>
       </div>
     </div>;
-    `;
+    `
   }
   function genEngineer(engineer) {
     // HTML for engineer card goes inside literal return
@@ -56,16 +56,17 @@ function genTeam(teamData) {
         <ul class="list-group">
           <li class="list-group-item">ID: ${engineer.getId()}</li>
           <li class="list-group-item">
-            Email:{" "}
+            Email:
             <a href="mailto:${engineer.getEmail()}">${engineer.getEmail()}</a>
           </li>
           <li class="list-group-item">
-            Github: ${engineer.getgithub()}
+            Github:
+            <a href="https://github.com${engineer.getgithub()}">${engineer.getgithub()}</a>
           </li>
         </ul>
       </div>
     </div>;
-        `;
+        `
   }
   const html = [];
 
@@ -105,10 +106,19 @@ module.exports = (newTeam) => {
     <title>Team Profile</title>
 </head>
 <body>
+<div class="card">
+    <div id="header" class="card-body" style="background-image: linear-gradient(-90deg, #e2b7ff, #a706f1)">
+      <h1 class="mb-3" style="text-align: center;">My Team</h1>
+    </div>
+   
+  <div class="card">
+    <div class="card" style="width: 18rem;" style="justify-content:center">
+      <div class="card-body" >
+
 ${genTeam(newTeam)}
 </body>
 </html>
- `;
+ `
   // return statement literal for HTML header
   // HTML that tells the card where it goes on the page
 };
